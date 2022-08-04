@@ -56,4 +56,9 @@ app.get('/showtask', appController.showallTask);
 
 app.post('/addtask', appController.addTask_post);
 
+//  Delete task
+app.post('/delete', appController.deleteTask);
+
+
+
 app.listen(5000, console.log("App Running on http://localhost:5000"));

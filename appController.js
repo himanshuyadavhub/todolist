@@ -81,8 +81,6 @@ exports.showallTask = async(req, res) => {
 
 };
 
-
-
 exports.addTask_post = (req, res) => {
     const tittle = req.body.tittle
     const desc = req.body.desc
@@ -103,5 +101,12 @@ exports.addTask_post = (req, res) => {
     res.redirect("/dashboard")
 };
 
+exports.deleteTask = async(req,res) => {
+  const userName = req.session.username;
+  const tittle = req.body.tittle;
 
+  const task = await Task.findOneAndDelete({Tittle:tittle,userName});
 
+  res.redirect("/dashboard")
+
+}
